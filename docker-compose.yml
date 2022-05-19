@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:11
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  web:
+    build:
+      context: ./
+      dockerfile: ./min-example.Dockerfile
+    command: bash -c "poetry run uvicorn examples.min_example:app --host 0.0.0.0 --port 8000 --reload --workers 4"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

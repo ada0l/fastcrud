@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fastcrud"
+version = "0.1.0"
+description = ""
+authors = ["ada0l <andreika.varfolomeev@yandex.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.78.0"
+pydantic = "^1.9.0"
+SQLAlchemy = {extras = ["asyncio"], version = "^1.4.36"}
+
+[tool.poetry.dev-dependencies]
+uvicorn = "^0.17.6"
+asyncpg = "^0.25.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
